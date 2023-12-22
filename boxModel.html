@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        height: 100vh;
+        width: 100%;
+        background-color: pink;
+      }
+      .inner {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      .card {
+        height: 280px;
+        width: 520px;
+        border: 2px solid black;
+        margin-top: 170px;
+        background-color: chocolate;
+        margin-left: 180px;
+      }
+      img {
+        height: 200px;
+        width: 220px;
+        margin-left: 30px;
+        border-radius: 10px;
+      }
+      p {
+        text-align: center;
+      }
+      .btn {
+        text-align: center;
+        /* margin-left: 20px; */
+      }
+      .card2 {
+        height: 280px;
+        width: 500px;
+        border: 2px solid black;
+        margin-left: 100px;
+        margin-top: 170px;
+        background-color: chocolate;
+      }
+      .in2 {
+        text-align: center;
+      }
+      .inner {
+        display: flex;
+      }
+      .left {
+        float: left;
+        margin-top: 40px;
+      }
+      .right {
+        margin-top: 60px;
+      }
+      input,
+      button {
+        border: 2px solid black;
+        height: 26px;
+      }
+      label {
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="inner">
+        <div class="card">
+          <div class="left">
+            <img src="baby-shoes-974714_1920.jpg" alt="" />
+          </div>
+          <div class="right">
+            <p>ADIDAS</p>
+            <p>250$</p>
+            <div class="btn">
+              <button id="inc">+</button>
+              <input type="text" name="" id="input" value="0" readonly />
+              <button id="dec">-</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card2">
+          <div class="in2">
+            <h2>Oder Summary</h2>
+            <label for="">ADIDAS</label>
+            <input type="text" name="" id="price" /><br /><br />
+
+            <label for="">Delivery Charges</label>
+            <input type="text" name="" value="5$" /><br /><br />
+
+            <hr />
+            <br />
+
+            <label for="">Total Price</label>
+            <input type="text" id="total" value="0" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let counter = 0;
+      let inc = document.getElementById("inc");
+      let dec = document.getElementById("dec");
+      let input = document.getElementById("input");
+      let price = document.getElementById("price");
+      let total = document.getElementById("total");
+
+      inc.addEventListener("click", () => {
+        if (counter >= 0) {
+          counter++;
+          input.value = counter;
+          price.value = input.value * 250 + "$";
+          let x = price.value;
+          x = Number.parseInt(x);
+          total.value = x + 5 + "$";
+        }
+        if (input.value == 0) {
+          price.value = " ";
+          total.value = " ";
+        }
+      });
+
+      dec.addEventListener("click", () => {
+        if (counter != 0) {
+          counter--;
+          input.value = counter;
+          price.value = input.value * 250 + "$";
+          let x = price.value;
+          x = Number.parseInt(x);
+          total.value = x + 5 + "$";
+        }
+        if (input.value == 0) {
+          price.value = " ";
+          total.value = " ";
+        }
+      });
+    </script>
+  </body>
+</html>
